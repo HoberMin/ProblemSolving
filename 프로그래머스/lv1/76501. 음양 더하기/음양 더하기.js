@@ -1,7 +1,4 @@
 function solution(absolutes, signs) {
-    const answer = []
-    signs.forEach((item,idx)=>{
-        item ? answer.push(absolutes[idx]): answer.push(-absolutes[idx])
-    })
-    return answer.reduce((sum,cur)=>sum+cur,0)
+
+    return absolutes.reduce((sum,cur,i)=>signs[i] ? sum+cur : sum+cur*-1 ,0)
 }
