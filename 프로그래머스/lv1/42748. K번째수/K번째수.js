@@ -1,5 +1,7 @@
 function solution(array, commands) {
-    const answer = commands.map(v=>
-        array.slice(v[0]-1,v[1]).sort((a,b)=>a-b)[v[2]-1])
+    const answer = commands.map(v=>{
+        const [i,j,k] = v
+        return array.slice(i-1,j).sort((a,b)=>a-b)[k-1]
+    })
     return answer
 }
