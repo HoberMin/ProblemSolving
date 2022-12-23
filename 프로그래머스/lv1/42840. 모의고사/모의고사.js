@@ -1,35 +1,15 @@
 function solution(answers) {
-    const rule1 = [1,2,3,4,5]
-    const rule2 = [2,1,2,3,2,4,2,5]
-    const rule3 = [3,3,1,1,2,2,4,4,5,5]
-    const peopleAnswer1 = answerMake(rule1 , answers.length)
-    const peopleAnswer2 = answerMake(rule2 , answers.length)
-    const peopleAnswer3 = answerMake(rule3 , answers.length)
-    return collectAnswer(answers,peopleAnswer1,peopleAnswer2,peopleAnswer3)
-}
-
-function collectAnswer(answers,people1,people2,people3){
-    const people1Collect = answers.filter((item,idx)=>item===people1[idx]).length
-    const people2Collect = answers.filter((item,idx)=>item===people2[idx]).length
-    const people3Collect = answers.filter((item,idx)=>item===people3[idx]).length
-    const arr = [people1Collect,people2Collect,people3Collect]
+    const people1 = [1,2,3,4,5]
+    const people2 = [2,1,2,3,2,4,2,5]
+    const people3 = [3,3,1,1,2,2,4,4,5,5]
     const answer = []
-    arr.forEach((item,idx)=>{
-        if(Math.max(...arr)===item) answer.push(idx+1)})
-    return answer
+    const people1Collect = answers.filter((a,i)=>a===people1[i%people1.length]).length
+    const people2Collect = answers.filter((a,i)=>a===people2[i%people2.length]).length
+    const people3Collect = answers.filter((a,i)=>a===people3[i%people3.length]).length
+    const max = Math.max(people1Collect,people2Collect,people3Collect)
+    if(people1Collect === max) {answer.push(1)}
+    if(people2Collect === max) {answer.push(2)}
+    if(people3Collect === max) {answer.push(3)}
     
-    
-}
-
-function answerMake(rule,length){
-    let peopleAnswer = []
-    let idx = 0;
-    let cnt = 0;
-    while(cnt<length){
-        peopleAnswer.push(rule[idx])
-        idx++
-        cnt++
-        idx===rule.length ? idx = 0 : idx = idx
-    }
-    return peopleAnswer
+    return answer;
 }
