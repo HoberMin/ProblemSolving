@@ -4,9 +4,8 @@ def solution(x):
     while d <= x:
         if x % d == 0:
             x = x//d
-            answer.append(d)
+            if (d not in answer):
+                answer.append(d)
         else:
             d = d + 1
-    new_list = list(set(answer))
-    new_list.sort()
-    return new_list
+    return answer
