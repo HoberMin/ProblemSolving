@@ -1,24 +1,16 @@
 def solution(N, stages):
-    dic_count = {}
-    trial = len(stages)
     answer = {}
-    for i in range(N+1): #모두 다 통과한 사람 까지 구하는 숫자
-        dic_count[str(i+1)] = stages.count(i+1)
-    
+    trial = len(stages)
     #실패율
-    for idx,j in enumerate (dic_count.values()):
-        if idx+1==N:
-            if trial == 0:
-                answer[str(idx+1)] = 0
-            else:
-                answer[str(idx+1)] = j/trial
+    for i in range(1,N+1):
+        if i==N+1:
             break;
         else:
             if trial == 0:
-                answer[str(idx+1)] = 0
+                answer[str(i)] = 0
             else:
-                answer[str(idx+1)] = j/trial
-            trial -= j
+                answer[str(i)] = stages.count(i)/trial
+            trial -= stages.count(i)
     return list(map(int,sorted(answer, key = lambda x: (answer[x],-int(x)),reverse=True)))
 
 # 1. for문으로 n+1까지 단계별 통과자를 dict_1로 구해야 함
