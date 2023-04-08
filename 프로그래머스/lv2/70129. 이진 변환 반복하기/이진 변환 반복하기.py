@@ -4,6 +4,6 @@ def solution(s):
     while s!="1":
         i+=1
         cnt += s.count("0")
-        s = bin(len("".join(s.split("0"))))[2:]
+        s = bin(s.count("1"))[2:]
     return [i,cnt]
         
