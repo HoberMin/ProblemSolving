@@ -4,12 +4,9 @@ function solution(n) {
 }
 
 function divisor(n){
-    i=1
-    div = []
+    i=1 , div = []
     for(i=1; i<=n; i++){
-        if(n%i===0){
-            div.push(i)
-        }
+        if(n%i===0) div.push(i)
     }
     return div
 }
