@@ -1,3 +1,5 @@
 function solution(n) {
-    return parseInt(Math.sqrt(n))===Math.sqrt(n) ? Math.pow(Math.sqrt(n)+1,2) : -1
+    if (n**0.5 === parseInt(n**0.5)){
+        return (n**0.5+1)**2
+    }else return -1
 }
