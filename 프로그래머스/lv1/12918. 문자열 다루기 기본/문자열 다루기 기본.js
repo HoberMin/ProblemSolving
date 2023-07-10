@@ -1,5 +1,9 @@
 function solution(s) {
-    if(s.length !== 4 && s.length!==6) return false
-    if(s.includes("e")) return false
-    return !isNaN(+s)
+    if ([4,6].includes(s.length)){
+        const arr = [...s].filter(item=> Number.isNaN(+item))
+        return arr.length === 0
+    }else
+    {
+        return false
+    }
 }
