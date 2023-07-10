@@ -1,7 +1,9 @@
 function solution(s) {
-    const answer = s
-    .toLowerCase()
-    .split(" ")
-    .map(item=>item===""? item : item[0].toUpperCase()+item.substring(1)).join(" ")
-    return answer
+    const blankArray = s.toLowerCase().split(" ")
+    const answerArray = blankArray.map(item=>{
+        if (item === "") return ""
+        return item[0].toUpperCase()+item.slice(1)
+        
+    })
+    return answerArray.join(" ")
 }
