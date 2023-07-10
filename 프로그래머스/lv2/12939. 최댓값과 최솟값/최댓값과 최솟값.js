@@ -1,6 +1,4 @@
 function solution(s) {
-    const answer = s.split(" ").map(v=>+v)
-    console.log(answer)
-    return Math.min(...answer)+" "+Math.max(...answer)
-
+    const arr = s.split(" ").map(item => +item).sort((a,b)=>a-b)
+    return `${arr[0]} ${arr[arr.length-1]}`
 }
