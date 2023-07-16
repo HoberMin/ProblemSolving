@@ -1,7 +1,10 @@
 function solution(strings, n) {
-    return strings.sort((a,b)=>{
-        if(a[n].charCodeAt()>b[n].charCodeAt()) return 1
-        if(a[n].charCodeAt()<b[n].charCodeAt()) return -1
-        return a>b ? 1 : -1 
-    })
-    }
+    strings.sort(function(a, b) {
+  if (a[n] !== b[n]) {
+    return a[n].localeCompare(b[n]);
+  } else {
+    return a.localeCompare(b);
+  }
+})
+    return strings
+}
