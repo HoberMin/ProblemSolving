@@ -1,12 +1,12 @@
 function solution(prices) {
-    const answer = []
     prices.reverse()
-    while (0 < prices.length){
-        let count = 0
+    const answer = []
+    while(0 < prices.length){
         const target = prices.pop()
+        let count = 0
         for (let i = prices.length-1; i>=0; i--){
             count ++
-            if (prices[i] < target){
+            if (prices[i] < target ){
                 break
             }
         }
