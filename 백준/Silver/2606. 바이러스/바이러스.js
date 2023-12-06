@@ -9,8 +9,7 @@ let visited = [...new Array(node + 1)].fill(0);
 let answer = 0;
 // 그래프 생성
 for (let i = 0; i < edge_num; i++) {
-  let start = Number(arr[i].split(' ')[0]);
-  let end = Number(arr[i].split(' ')[1]);
+  const [start, end] = arr[i].split(' ');
   graph[start].push(end);
   graph[end].push(start);
 }
