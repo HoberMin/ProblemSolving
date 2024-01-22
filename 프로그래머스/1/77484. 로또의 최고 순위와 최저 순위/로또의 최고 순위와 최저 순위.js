@@ -1,15 +1,5 @@
 function solution(lottos, win_nums) {
-    lottos.sort((a,b) => a-b)
-    win_nums.sort((a,b) => a-b)
-    const lottoPrize = {
-        0 : 6,
-        1 : 6,
-        2 : 5,
-        3 : 4,
-        4 : 3,
-        5 : 2,
-        6 : 1
-    }
+    const rank = [6,6,5,4,3,2,1]
     
     let zero = 0
     let collectNumber = 0
@@ -19,6 +9,6 @@ function solution(lottos, win_nums) {
         if (win_nums.includes(e)) return collectNumber += 1
     })
     
-    return [lottoPrize[collectNumber + zero], lottoPrize[collectNumber]]
+    return [rank[collectNumber + zero], rank[collectNumber]]
     
 }
