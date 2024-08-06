@@ -31,7 +31,9 @@ const solution = (inputs) => {
     for (let i = 0; i < inputs.length; i++) {
       if (visited[i] === false) {
         visited[i] = true;
-        permutation([...item, i]);
+        item.push(i);
+        permutation(item);
+        item.pop();
         visited[i] = false;
       }
     }
