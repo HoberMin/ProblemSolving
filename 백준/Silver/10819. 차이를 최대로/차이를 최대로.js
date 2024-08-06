@@ -1,18 +1,19 @@
-const readline = require('readline');
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 const input = [];
 
-rl.on('line', (line) => {
+rl.on("line", (line) => {
   input.push(line);
-}).on('close', () => {
-  console.log(solution(input[1].split(' ').map(Number)));
+}).on("close", () => {
+  console.log(solution(input[1].split(" ").map(Number)));
 });
 
 const solution = (inputs) => {
   let max = 0;
+  const visited = new Array(10).fill(false);
 
   const calculateMax = (arr) => {
     let temp = 0;
@@ -28,13 +29,15 @@ const solution = (inputs) => {
     }
 
     for (let i = 0; i < inputs.length; i++) {
-      if (!item.includes(i)) {
+      if (visited[i] === false) {
+        visited[i] = true;
         permutation([...item, i]);
+        visited[i] = false;
       }
     }
   };
 
-  permutation([]);
+  permutation([], 0);
   return max;
 };
 
