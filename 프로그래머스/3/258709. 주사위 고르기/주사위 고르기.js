@@ -51,22 +51,42 @@ function solution(dice) {
         ASum.sort((a,b) => a-b)
         BSum.sort((a,b) => a-b)
         
-        for (let i = 0; i < ASum.length; i++) {
+        const map = new Map()
         
-            let left = 0;
-            let right = BSum.length - 1;
-
-            while (left <= right) {
-                const mid = Math.floor((left + right) / 2);
-
-                if (BSum[mid] < ASum[i]) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
+        for (const a of ASum) {
+            if (!map.has(a)) {
+                let count = 0
+                for (const b of BSum) {
+                    if (a > b) {
+                        count += 1
+                    } else {
+                        break;
+                    }
                 }
+                aWin += count
+                map.set(a, count)
+            }else{
+                aWin += map.get(a)
             }
-                aWin += left;
-            }
+        }
+        
+        
+//         for (let i = 0; i < ASum.length; i++) {
+        
+//             let left = 0;
+//             let right = BSum.length - 1;
+
+//             while (left <= right) {
+//                 const mid = Math.floor((left + right) / 2);
+
+//                 if (BSum[mid] < ASum[i]) {
+//                     left = mid + 1;
+//                 } else {
+//                     right = mid - 1;
+//                 }
+//             }
+//                 aWin += left;
+//         }
         
         if (max < aWin) {
             max = aWin
